@@ -12,7 +12,7 @@ rdaC(x, y)
 \item{y}{response vector}
 }
 \value{
-a model object that can be used by the \code{\link{impute}} function
+a model object that can be used by the \code{\link[imputeR]{impute}} function
 }
 \description{
 regularised LDA method for imputation
@@ -20,10 +20,10 @@ regularised LDA method for imputation
 \examples{
 data(spect)
 missdata <- SimIm(spect, 0.1)
-\dontrun{
+\donttest{
 impdata <- impute(spect, cFun = "rdaC")
 }
 }
 \seealso{
-\code{\link{rda}}
+\code{\link[rda]{rda}}
 }

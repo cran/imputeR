@@ -12,7 +12,7 @@ rpartC(x, y)
 \item{y}{response vector}
 }
 \value{
-a model object that can be used by the \code{\link{impute}} function
+a model object that can be used by the \code{\link[imputeR]{impute}} function
 }
 \description{
 classification tree for imputation
@@ -20,10 +20,10 @@ classification tree for imputation
 \examples{
 data(spect)
 missdata <- SimIm(spect, 0.1)
-\dontrun{
+\donttest{
 impdata <- impute(spect, cFun = "rpartC")
 }
 }
 \seealso{
-\code{\link{rpart}}
+\code{\link[rpart]{rpart}}
 }

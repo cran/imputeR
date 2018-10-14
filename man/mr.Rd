@@ -24,10 +24,8 @@ the missing data and the true data.
 data(spect)
 Detect(spect)
 missdata <- SimIm(spect, 0.1)
-\dontrun{
-require(cutoffR)
-HeatStruct(missdata)
-nmissing(missdata)
+\donttest{
+sum(is.na(missdata))
 # impute using rpart
 impdata <- impute(missdata, cFun = "rpartC")
 # calculate the misclassification error

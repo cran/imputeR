@@ -37,7 +37,7 @@
 #' # introduce 10% random missing values into the parkinson data
 #' missdata <- SimIm(parkinson, 0.1)
 #' # impute the missing values by LASSO
-#' \dontrun{
+#' \donttest{
 #' impdata <- impute(missdata, lmFun = "lassoR")
 #' # calculate the normalised RMSE for the imputation
 #' Rmse(impdata$imp, missdata, parkinson, norm = TRUE)
@@ -221,6 +221,8 @@ impute <- function(missdata, lmFun = NULL, cFun = NULL, ini = NULL,
             misY <- predict(Miss, misX, ncomp = 2, type = "response")
           } else if (lmFun == "CubistR") {
             misY <- predict(Miss$model, misX, neighbors = Miss$neighbors)
+          } else if (lmFun == "glmboostR") {
+            misY <- predict(Miss, newdata = as.data.frame(misX))
           } else {
             misY <- predict(Miss, misX)
           }
